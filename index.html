@@ -1,747 +1,427 @@
 <!DOCTYPE html>
+<!-- Declares this as a modern HTML page. -->
 <html lang="en">
 <head>
-  <!-- Sets the character encoding so punctuation and symbols display correctly. -->
+  <!-- Supports letters, punctuation, and symbols. -->
   <meta charset="UTF-8">
-
-  <!-- Makes the layout adapt to phones, tablets, and computers. -->
+  <!-- Makes the layout fit phone, tablet, and computer screens. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Gives the browser and search results a short description of the portfolio. -->
+  <!-- Summarizes the portfolio for browser previews and search results. -->
   <meta name="description" content="Carolina Munar connects data, strategy, design, and technology to turn complex challenges into practical solutions.">
-
-  <!-- The words shown in the browser tab. -->
-  <title>Carolina Munar | Data, Program Management & Applied AI</title>
-
+  <!-- Sets the browser tab title. -->
+  <title>Carolina Munar | Data Scienctist, Program Management, and Applied AI</title>
+  <!-- Contains all styles so the site works from one file on GitHub Pages. -->
   <style>
-    /* Defines the colors and reusable measurements for the page. */
+    /* Keeps padding and borders inside each element's stated width. */
+    * { box-sizing: border-box; }
+
+    /* Uses the requested navy, gold, paper gray, white, and blue palette. */
     :root {
-      --ink: #172b3a;
-      --muted: #526575;
-      --paper: #f7f5f0;
-      --card: #ffffff;
-      --teal: #147d78;
-      --teal-dark: #0c5e5a;
-      --coral: #d8795b;
-      --line: #dce4e2;
-      --soft-teal: #e8f3f1;
-      --soft-coral: #fbede7;
-      --width: 1080px;
-    }
-
-    /* Uses predictable sizing for every element. */
-    * {
-      box-sizing: border-box;
-    }
-
-    /* Sets the page background, default text, and font. */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.65;
-    }
-
-    /* Keeps the main content centered and readable. */
-    .container {
-      width: min(var(--width), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    /* Styles the top navigation bar. */
-    .site-header {
-      background: rgba(247, 245, 240, 0.96);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      color: var(--ink);
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 22px;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .nav-links a:hover {
-      color: var(--teal-dark);
-    }
-
-    /* Creates the opening section and its subtle decorative accent. */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 100px 0 92px;
-      background:
-        radial-gradient(circle at 88% 18%, rgba(20, 125, 120, 0.13), transparent 27%),
-        radial-gradient(circle at 8% 100%, rgba(216, 121, 91, 0.10), transparent 26%),
-        var(--paper);
-    }
-
-    .eyebrow {
-      margin: 0 0 18px;
-      color: var(--teal-dark);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-    }
-
-    h1,
-    h2,
-    h3 {
-      margin-top: 0;
-      line-height: 1.15;
-    }
-
-    h1 {
-      max-width: 820px;
-      margin-bottom: 18px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.6rem, 7vw, 5.4rem);
-      font-weight: 700;
-      letter-spacing: -0.045em;
-    }
-
-    .hero-statement {
-      max-width: 800px;
-      margin: 0 0 18px;
-      color: var(--teal-dark);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.55rem, 3.4vw, 2.5rem);
-      font-weight: 700;
-      line-height: 1.25;
-    }
-
-    .hero-copy {
-      max-width: 760px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.08rem;
-    }
-
-    .role-line {
-      margin: 24px 0 0;
-      color: var(--ink);
-      font-size: 0.95rem;
-      font-weight: 700;
-    }
-
-    /* Styles the two main action links. */
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 30px;
-    }
-
-    .button {
-      display: inline-flex;
-      min-height: 48px;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 20px;
-      border: 2px solid var(--teal);
-      border-radius: 999px;
-      background: var(--teal);
-      color: #ffffff;
-      font-weight: 800;
-      text-decoration: none;
-      transition: transform 160ms ease, background 160ms ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      background: var(--teal-dark);
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--teal-dark);
-    }
-
-    .button.secondary:hover {
-      background: var(--soft-teal);
-    }
-
-    /* Gives each main section consistent spacing. */
-    section {
-      padding: 78px 0;
-      scroll-margin-top: 24px;
-    }
-
-    .section-heading {
-      max-width: 760px;
-      margin-bottom: 32px;
-    }
-
-    .section-heading h2 {
-      margin-bottom: 12px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.03em;
-    }
-
-    .section-heading p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    /* Presents the education story in a readable text column. */
-    .story-card {
-      max-width: 900px;
-      padding: clamp(24px, 5vw, 48px);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: var(--card);
-      box-shadow: 0 14px 40px rgba(23, 43, 58, 0.05);
-    }
-
-    .story-card p {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 1.04rem;
-    }
-
-    .story-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .story-card strong {
-      color: var(--ink);
-    }
-
-    /* Highlights the program leadership example. */
-    .experience {
-      background: var(--ink);
-      color: #ffffff;
-    }
-
-    .experience .eyebrow {
-      color: #8dd3ca;
-    }
-
-    .experience h2 {
-      max-width: 780px;
-      margin-bottom: 14px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2rem, 4vw, 3.1rem);
-    }
-
-    .experience .section-intro {
-      margin: 0 0 28px;
-      color: #c8d6dc;
-    }
-
-    .experience-story {
-      max-width: 900px;
-      padding: clamp(24px, 5vw, 42px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .experience-story p {
-      margin: 0;
-      color: #f2f6f7;
-      font-size: 1.06rem;
-    }
-
-    .impact-numbers {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 26px;
-    }
-
-    .number-card {
-      min-width: 145px;
-      padding: 14px 18px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.10);
-    }
-
-    .number-card strong {
-      display: block;
-      color: #8dd3ca;
-      font-size: 1.7rem;
-      line-height: 1.1;
-    }
-
-    .number-card span {
-      color: #dce7ea;
-      font-size: 0.88rem;
-    }
-
-    /* Builds the five-item CliftonStrengths visual. */
-    .strength-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .strength {
-      min-height: 135px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: var(--card);
-    }
-
-    .strength-number {
-      display: block;
-      margin-bottom: 14px;
-      color: var(--coral);
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-    }
-
-    .strength strong {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.18rem;
-    }
-
-    .value-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      margin-top: 20px;
-      padding: 28px;
-      border-radius: 20px;
-      background: var(--soft-teal);
-    }
-
-    .value-card h3 {
-      margin-bottom: 8px;
-      font-size: 1rem;
-    }
-
-    .value-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .reflection {
-      margin-top: 16px;
-      padding: 24px 28px;
-      border-left: 5px solid var(--coral);
-      border-radius: 0 16px 16px 0;
-      background: var(--soft-coral);
-      color: var(--muted);
-    }
-
-    .reflection strong {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--ink);
-    }
-
-    /* Arranges the project artifact cards in a responsive grid. */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      padding: 26px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: var(--card);
-      box-shadow: 0 12px 32px rgba(23, 43, 58, 0.04);
-    }
-
-    .project-type {
-      margin: 0 0 12px;
-      color: var(--teal-dark);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
-    .project-card h3 {
-      margin-bottom: 10px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.55rem;
-    }
-
-    .project-summary {
-      margin: 0 0 18px;
-      color: var(--muted);
-    }
-
-    .project-link {
-      display: inline-block;
-      margin: 0 0 18px;
-      color: var(--teal-dark);
-      font-weight: 800;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 3px;
-    }
-
-    /* Makes the course rubric details easy to open and read. */
-    details {
-      margin-top: auto;
-      border-top: 1px solid var(--line);
-      padding-top: 16px;
-    }
-
-    summary {
-      color: var(--teal-dark);
-      cursor: pointer;
-      font-weight: 800;
-    }
-
-    .artifact-details {
-      padding-top: 12px;
-    }
-
-    .artifact-details p {
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .artifact-details strong {
-      color: var(--ink);
-    }
-
-    .artifact-details a {
-      color: var(--teal-dark);
-    }
-
-    /* Styles the closing invitation to connect. */
-    .contact {
-      padding: 72px 0;
-      background: var(--soft-teal);
-      text-align: center;
-    }
-
-    .contact h2 {
-      margin-bottom: 12px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-    }
-
-    .contact p {
-      max-width: 650px;
-      margin: 0 auto;
-      color: var(--muted);
-    }
-
-    .contact .actions {
-      justify-content: center;
-    }
-
-    /* Styles the small copyright line at the bottom. */
-    footer {
-      padding: 22px 0;
-      color: var(--muted);
-      font-size: 0.88rem;
-      text-align: center;
-    }
-
-    /* Adjusts grids and navigation for smaller screens. */
+      --navy: #0B2545;
+      --gold: #C99424;
+      --soft-gold: #F1CC77;
+      --paper: #F7F8FA;
+      --ink: #152536;
+      --blue: #165D9C;
+      --white: #FFFFFF;
+      --navy-text: #E5ECF3;
+      --line: #D9E1E8;
+      --muted: #526477;
+      --max: 1080px;
+    }
+
+    /* Sets page-wide font, color, spacing, and background. */
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.65 Arial, Helvetica, sans-serif; }
+    a { color: var(--blue); text-underline-offset: 3px; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+
+    /* Centers the page content and keeps text lines comfortable to read. */
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    /* Styles the top navigation. */
+    .site-header { background: var(--navy); border-bottom: 1px solid var(--navy); }
+    .nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 36px; }
+    .brand { flex-shrink: 0; color: var(--white); font-size: 1.35rem; font-weight: 800; letter-spacing: 0; text-decoration: none; white-space: nowrap; }
+    .nav-links { display: flex; flex: 1; flex-wrap: wrap; justify-content: flex-end; gap: 20px; }
+    .nav-links a { color: var(--soft-gold); font-size: .92rem; font-weight: 700; text-decoration: none; }
+    .nav-links a:hover { color: var(--gold); text-decoration: underline; }
+
+    /* Gives the opening statement the strongest visual emphasis. */
+    .hero { padding: 86px 0 78px; background: var(--navy); color: var(--white); }
+    .eyebrow { display: inline-block; margin: 0 0 14px; padding-bottom: 5px; border-bottom: 2px solid var(--gold); color: var(--blue); font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    h1, h2, h3, h4 { color: var(--navy); font-family: Georgia, "Times New Roman", serif; line-height: 1.18; }
+    .hero .eyebrow, .contact .eyebrow { color: var(--soft-gold); }
+    .hero h1 { color: var(--white); }
+    h1 { max-width: 850px; margin: 0; font-size: clamp(2.55rem, 6.5vw, 5rem); letter-spacing: -.045em; }
+    .hero-lede { max-width: 820px; margin: 20px 0 0; color: var(--soft-gold); font-size: clamp(1.35rem, 3vw, 2rem); font-weight: 700; line-height: 1.35; }
+    .hero-copy { max-width: 780px; margin: 17px 0 0; color: var(--navy-text); font-size: 1.05rem; }
+    .role-line { margin: 20px 0 0; color: var(--navy-text); font-size: .92rem; font-weight: 700; }
+
+    /* Styles the two main navigation actions. */
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 26px; }
+    .button { display: inline-block; padding: 11px 17px; border: 2px solid var(--gold); border-radius: 6px; background: var(--gold); color: var(--navy); font-weight: 700; text-decoration: none; }
+    .button:hover { background: var(--soft-gold); border-color: var(--soft-gold); }
+    .button.outline { border-color: var(--soft-gold); background: transparent; color: var(--soft-gold); }
+    .button.outline:hover { background: rgba(241,204,119,.14); }
+
+    /* Keeps a consistent rhythm between page sections. */
+    section { padding: 68px 0; scroll-margin-top: 18px; }
+    .section-title { max-width: 780px; margin-bottom: 28px; }
+    .section-title h2 { margin: 0 0 12px; font-size: clamp(1.9rem, 4vw, 2.8rem); letter-spacing: -.025em; }
+    .section-title p:last-child { margin: 0; color: var(--muted); }
+
+    /* Styles the multidisciplinary introduction. */
+    .story { max-width: 860px; }
+    .story p { color: var(--muted); }
+    .story strong { color: var(--ink); }
+    #about, #strengths, #projects { background: var(--white); }
+    .story-end { padding: 19px 22px; border-left: 4px solid var(--gold); background: var(--white); color: var(--ink) !important; font-weight: 700; }
+
+    /* Highlights the professional example with concise metrics. */
+    .experience { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper); color: var(--ink); }
+    .experience .eyebrow { color: var(--blue); }
+    .experience h2 { color: var(--navy); }
+    .experience .section-title p:last-child { color: var(--muted); }
+    .experience-copy { max-width: 890px; margin: 0; color: var(--muted); font-size: 1.03rem; }
+    .metrics { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 25px; }
+    .metric { min-width: 145px; padding: 13px 17px; border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 7px; background: var(--white); text-align: center; }
+    .metric strong { display: block; color: var(--blue); font-size: 1.5rem; line-height: 1.2; }
+    .metric span { color: var(--muted); font-size: .86rem; }
+
+    /* Turns five themes into a left-to-right story of how the strengths can work together. */
+    .strengths { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+    .strength { position: relative; min-height: 195px; padding: 16px; border: 1px solid var(--line); border-top: 4px solid var(--gold); border-radius: 7px; background: var(--white); }
+    .strength:not(:last-child)::after { position: absolute; z-index: 1; top: 23px; right: -11px; width: 19px; height: 19px; border-top: 2px solid var(--blue); border-right: 2px solid var(--blue); background: var(--white); content: ""; transform: rotate(45deg); }
+    .strength .num { display: block; margin-bottom: 9px; color: var(--blue); font-size: .77rem; font-weight: 800; letter-spacing: .1em; }
+    .strength .stage { display: block; margin-bottom: 7px; color: var(--muted); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .strength strong { color: var(--blue); font-size: 1.04rem; }
+    .strength p { margin: 8px 0 0; color: var(--muted); font-size: .84rem; line-height: 1.45; }
+    .strength-caption { margin: 12px 0 0; color: var(--muted); font-size: .82rem; }
+    .strengths-link { display: table; margin: 16px auto 0; padding: 9px 13px; border: 1px solid var(--blue); border-radius: 5px; color: var(--blue); font-size: .9rem; font-weight: 700; text-align: center; text-decoration: none; }
+    .strengths-link:hover { background: var(--paper); }
+    .strength-takeaway { margin: 18px 0 0; padding: 16px 18px; border-left: 4px solid var(--gold); background: var(--white); color: var(--ink); font-weight: 700; }
+    .value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+    .value-box { padding: 20px; border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 7px; background: var(--white); }
+    .value-box h3 { margin: 0 0 7px; font-size: 1rem; }
+    .value-box p { margin: 0; color: var(--muted); }
+    .reflection { margin-top: 14px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 7px; color: var(--muted); }
+    .reflection strong { color: var(--ink); }
+
+    /* Sets up the AI history infographic as a visible artifact on the page. */
+    .timeline-section { background: var(--paper); }
+    .infographic { overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: var(--white); box-shadow: 0 8px 24px rgba(32,48,64,.06); }
+    .info-head { padding: 24px 26px; background: var(--navy); color: var(--white); }
+    .info-head p { margin: 0; color: var(--navy-text); }
+    .info-head h3 { margin: 0 0 5px; color: var(--white); font-size: clamp(1.4rem, 3vw, 2rem); }
+    .era-key { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 16px; border-bottom: 1px solid var(--line); }
+    .era { padding: 11px 12px; border: 1px solid var(--line); border-left: 5px solid var(--era); border-radius: 5px; background: var(--era-bg); }
+    .era strong { display: block; color: var(--ink); font-size: .84rem; }
+    .era span { color: var(--muted); font-size: .76rem; }
+    .era.foundation { --era: #0B2545; --era-bg: #F7F8FA; }
+    .era.symbolic { --era: #165D9C; --era-bg: #F7F8FA; }
+    .era.winter { --era: #526477; --era-bg: #F7F8FA; }
+    .era.statistical { --era: #165D9C; --era-bg: #F7F8FA; }
+    .era.deep { --era: #C99424; --era-bg: #F7F8FA; }
+    .era.generative { --era: #C99424; --era-bg: #F7F8FA; }
+
+    /* Arranges milestones in a vertical timeline for clear scanning. */
+    .timeline { position: relative; margin: 0; padding: 10px 24px 24px; list-style: none; }
+    .timeline::before { position: absolute; top: 20px; bottom: 31px; left: 91px; width: 2px; background: var(--line); content: ""; }
+    .event { position: relative; display: grid; grid-template-columns: 58px 1fr; gap: 26px; padding: 13px 0; }
+    .event::before { position: absolute; top: 23px; left: 60px; width: 12px; height: 12px; border: 3px solid var(--white); border-radius: 50%; background: var(--event-color, var(--blue)); box-shadow: 0 0 0 1px var(--line); content: ""; }
+    .event time { padding-top: 1px; color: var(--blue); font-weight: 800; }
+    .event-body { padding: 0 0 12px 20px; border-bottom: 1px solid var(--line); }
+    .event:last-child .event-body { border-bottom: 0; }
+    .event h4 { margin: 0 0 3px; color: var(--ink); font-size: 1rem; }
+    .event p { margin: 0; color: var(--muted); font-size: .91rem; }
+    .event.foundation { --event-color: #0B2545; }
+    .event.symbolic { --event-color: #165D9C; }
+    .event.winter { --event-color: #526477; }
+    .event.statistical { --event-color: #165D9C; }
+    .event.deep { --event-color: #C99424; }
+    .event.generative { --event-color: #C99424; }
+    .infographic-caption { margin: 0; padding: 0 26px 22px; color: var(--muted); font-size: .83rem; }
+
+    /* Presents artifacts in two columns on wide screens. */
+    .artifact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .artifact { padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--white); }
+    .artifact h3 { margin: 0 0 8px; font-size: 1.28rem; }
+    .artifact-intro { color: var(--muted); }
+    .artifact-link { display: table; margin: 5px auto 14px; font-weight: 700; text-align: center; }
+    details { margin-top: 15px; padding-top: 13px; border-top: 1px solid var(--line); }
+    summary { color: var(--navy); cursor: pointer; font-weight: 800; }
+    summary::marker { color: var(--gold); }
+    .detail-content { padding-top: 8px; }
+    .detail-content p { margin: 9px 0; color: var(--muted); font-size: .92rem; }
+    .detail-content strong { color: var(--ink); }
+    .reference-list { padding-left: 18px; }
+    .reference-list li { margin: 6px 0; color: var(--muted); font-size: .9rem; }
+    .strength-artifact { grid-column: 1 / -1; }
+
+    /* Creates a compact, clear contact section. */
+    .contact { border-top: 2px solid var(--gold); background: var(--navy); color: var(--white); text-align: center; }
+    .contact .eyebrow { display: table; margin-right: auto; margin-left: auto; }
+    .contact h2, .contact-copy { margin-right: auto; margin-left: auto; text-align: center; }
+    .contact h2 { color: var(--white); }
+    .contact-copy { max-width: 740px; margin-top: 0; color: var(--navy-text); }
+    .contact .actions { justify-content: center; }
+    .contact a:not(.button) { color: var(--soft-gold); }
+    footer { padding: 20px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .86rem; text-align: center; }
+
+    /* Stacks cards and adjusts timeline alignment on smaller screens. */
     @media (max-width: 760px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: center;
-        padding: 16px 0;
-      }
-
-      .nav-links {
-        gap: 14px;
-      }
-
-      .hero {
-        padding: 72px 0;
-      }
-
-      section {
-        padding: 60px 0;
-      }
-
-      .strength-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .project-grid,
-      .value-card {
-        grid-template-columns: 1fr;
-      }
+      .nav { display: flex; align-items: flex-start; flex-direction: column; justify-content: center; gap: 12px; padding: 14px 0; }
+      .nav-links { flex: initial; justify-content: flex-start; gap: 12px 17px; }
+      .hero { padding: 60px 0; }
+      section { padding: 52px 0; }
+      .strengths { grid-template-columns: repeat(2, 1fr); }
+      .strength:not(:last-child)::after { display: none; }
+      .era-key { grid-template-columns: repeat(2, 1fr); }
+      .artifact-grid, .value-grid { grid-template-columns: 1fr; }
+      .strength-artifact { grid-column: auto; }
     }
 
-    /* Keeps the strengths infographic to one column on narrow phones. */
-    @media (max-width: 420px) {
-      .strength-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .container {
-        width: min(var(--width), calc(100% - 28px));
-      }
+    /* Simplifies the infographic and buttons on narrow phone screens. */
+    @media (max-width: 480px) {
+      .wrap { width: min(var(--max), calc(100% - 28px)); }
+      .strengths, .era-key { grid-template-columns: 1fr; }
+      .strength { min-height: auto; }
+      .timeline { padding-right: 14px; padding-left: 14px; }
+      .timeline::before { left: 72px; }
+      .event { grid-template-columns: 45px 1fr; gap: 19px; }
+      .event::before { left: 46px; }
+      .event-body { padding-left: 16px; }
+      .actions .button { width: 100%; text-align: center; }
+      .info-head { padding: 20px; }
     }
   </style>
 </head>
-
 <body>
-  <!-- Provides quick links to the main portfolio sections. -->
+  <!-- Provides short links to the one-page portfolio sections. -->
   <header class="site-header">
-    <nav class="container nav" aria-label="Main navigation">
-      <a class="brand" href="#top">Carolina Munar</a>
-      <div class="nav-links">
-        <a href="#story">My approach</a>
-        <a href="#experience">Experience</a>
-        <a href="#strengths">Strengths</a>
+    <div class="wrap nav">
+      <a class="brand" href="#top">Carolina Munar, M.A., M.S.</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#value">Value</a>
         <a href="#projects">Projects</a>
-      </div>
-    </nav>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <main id="top">
-    <!-- Opens with the main value proposition and contact actions. -->
+    <!-- Answers who you are, what you bring, and what visitors can do next. -->
     <section class="hero">
-      <div class="container">
-        <p class="eyebrow">Data Science · Program Management · Applied AI and Machine Learning</p>
-        <h1>Insight matters when it changes what happens next.</h1>
-        <p class="hero-statement">I turn complex data into clear insights and strategic action.</p>
-        <p class="hero-copy">
-          My multidisciplinary background helps me see challenges from different perspectives.
-          I bring data, strategy, design, and technology together to create thoughtful, practical
-          solutions that respond to people’s needs.
-        </p>
-        <p class="role-line">
-          Experience across program management, data analysis, product design, consulting, and stakeholder engagement.
-        </p>
+      <div class="wrap">
+        <p class="eyebrow">Data Scientist · Program Management · Applied AI/ML</p>
+        <h1>I turn complex data into clear insights and strategic action.</h1>
+        <p class="hero-lede">Insight matters when it changes what happens next.</p>
+        <p class="hero-copy">My multidisciplinary background helps me see challenges from different perspectives. I bring data, strategy, design, and technology together to create thoughtful, practical solutions that respond to people’s needs. My experience spans program management, data analysis, product design, consulting, and stakeholder engagement.</p>
         <div class="actions">
           <a class="button" href="#projects">Explore my projects</a>
-          <!-- Replace the placeholder URL below with your actual LinkedIn profile URL. -->
-          <a class="button secondary" href="https://www.linkedin.com/in/carolina-munarb/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+          <!-- Opens your public LinkedIn profile. -->
+          <a class="button outline" href="https://www.linkedin.com/in/carolina-munarb" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
         </div>
       </div>
     </section>
 
-    <!-- Connects your degrees to the way you approach problems. -->
-    <section id="story">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">My introduction</p>
-          <h2>I learned to see the whole problem.</h2>
+    <!-- Tells the education story as a connected way of solving problems. -->
+    <section id="about">
+      <div class="wrap">
+        <div class="section-title">
+          <p class="eyebrow">About</p>
+          <h2>A good solution begins by understanding the whole problem.</h2>
         </div>
-
-        <div class="story-card">
-          <p>
-            A good solution begins with understanding the whole problem: how a process works,
-            why it needs to change, and who the change affects.
-          </p>
-          <p>
-            My <strong>B.S. in Engineering</strong> taught me to examine processes and improve them.
-            My <strong>M.A. in International Development and Project Management</strong> expanded my
-            view to complex programs, giving me tools to identify root causes, understand cause and
-            effect, and turn goals into project plans.
-          </p>
-          <p>
-            My <strong>M.S. in Technology and Innovation Enterprise</strong> brought the focus to the
-            people who use a solution through product design, design thinking, and entrepreneurship.
-            My <strong>M.S. in Data Science and Analytics</strong> taught me to investigate evidence
-            through statistical analysis and exploratory data analysis, then build machine learning
-            models with R and Python. I am now pursuing my <strong>M.S. in Artificial Intelligence</strong>,
-            extending that foundation through Java, object oriented programming, and machine learning.
-          </p>
-          <p>
-            Together, these fields shape how I work: I look at the system, consider the people it
-            affects, follow the evidence, and build toward a practical solution.
-          </p>
+        <div class="story">
+          <p>A good solution begins with understanding the whole problem: how a process works, why it needs to change, and who the change affects.</p>
+          <p>My <strong>B.S. in Engineering</strong> taught me to examine processes and improve them. My <strong>M.A. in International Development and Project Management</strong> expanded that view to complex programs, giving me tools to identify root causes, understand cause and effect, and turn goals into project plans.</p>
+          <p>My <strong>M.S. in Technology and Innovation Enterprise</strong> brought the focus to the people who use a solution through product design, design thinking, and entrepreneurship. My <strong>M.S. in Data Science and Analytics</strong> taught me to investigate evidence through statistical analysis and exploratory data analysis, then build machine learning models with R and Python. I am now pursuing my <strong>M.S. in Artificial Intelligence</strong>, extending that foundation through Java, object oriented programming, and machine learning.</p>
+          <p class="story-end">Together, these fields shape how I work: I look at the system, consider the people it affects, follow the evidence, and build toward a practical solution.</p>
         </div>
       </div>
     </section>
 
-    <!-- Shows how program management and data analysis came together in your work. -->
-    <section id="experience" class="experience">
-      <div class="container">
-        <p class="eyebrow">Experience in action</p>
-        <h2>Program Management is part of my data story.</h2>
-        <p class="section-intro">I connect analysis with a clear plan and learning designed for its audience.</p>
-
-        <div class="experience-story">
-          <p>
-            I brought these perspectives together in a global leadership program. I analyzed five
-            years of program data using SQL and presented the findings to leadership. My analysis
-            and presentation made the case for improvement and prompted leadership to strengthen
-            the program. Following root cause analysis, I developed an enhancement project plan
-            with eight outcomes and 75 activities. One outcome was a workbook for the training
-            materials. I applied design thinking through empathy, product design, prototyping,
-            testing, and iterative improvement. Audience analysis showed that the lengthy,
-            text-heavy format was not a good fit for the intended learners. I then used
-            retrieval-augmented generation (RAG) to streamline the content.
-          </p>
-
-          <div class="impact-numbers" aria-label="Project scope">
-            <div class="number-card"><strong>5 years</strong><span>of program data analyzed</span></div>
-            <div class="number-card"><strong>8</strong><span>project plan outcomes</span></div>
-            <div class="number-card"><strong>75</strong><span>planned activities</span></div>
-          </div>
+    <!-- Shows how analysis led to a decision, a plan, and learner-focused materials. -->
+    <section class="experience" id="value">
+      <div class="wrap">
+        <div class="section-title">
+          <p class="eyebrow">Experience in action</p>
+          <h2>Program Management is part of my data story.</h2>
+          <p>Insight became a case for change, then a plan designed around its learners.</p>
+        </div>
+        <p class="experience-copy">I brought these perspectives together in a global leadership program. I analyzed five years of program data using SQL and presented the findings to leadership. My analysis and presentation made the case for improvement and prompted leadership to strengthen the program. Following root cause analysis, I developed an enhancement project plan with eight outcomes and 75 activities. One outcome was a workbook for the training materials. I applied design thinking through empathy, product design, prototyping, testing, and iterative improvement. Audience analysis showed that the lengthy, text-heavy format was not a good fit for the intended learners. I then used retrieval augmented generation (RAG) to streamline the content.</p>
+        <div class="metrics" aria-label="Highlights from the program improvement plan">
+          <div class="metric"><strong>5 years</strong><span>of program data analyzed with SQL</span></div>
+          <div class="metric"><strong>8</strong><span>project plan outcomes</span></div>
+          <div class="metric"><strong>75</strong><span>planned activities</span></div>
         </div>
       </div>
     </section>
 
-    <!-- Displays the five CliftonStrengths results as a quick visual. -->
+    <!-- Summarizes your strengths and the value and reflection required by the course. -->
     <section id="strengths">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">CliftonStrengths</p>
-          <h2>How I bring my strengths to the work.</h2>
-          <p>Five themes. One way of moving from questions to practical solutions.</p>
+      <div class="wrap">
+        <div class="section-title">
+          <p class="eyebrow">Strengths in action</p>
+          <h2>How my five strengths move thinking into action.</h2>
+          <p>The report describes five distinct talents. Together, they suggest a working rhythm: investigate, find a path, sustain effort, keep learning, and connect ideas.</p>
         </div>
-
-        <div class="strength-grid" aria-label="My five CliftonStrengths results">
-          <div class="strength"><span class="strength-number">01</span><strong>Analytical</strong></div>
-          <div class="strength"><span class="strength-number">02</span><strong>Strategic</strong></div>
-          <div class="strength"><span class="strength-number">03</span><strong>Achiever</strong></div>
-          <div class="strength"><span class="strength-number">04</span><strong>Learner</strong></div>
-          <div class="strength"><span class="strength-number">05</span><strong>Ideation</strong></div>
+        <div class="strengths" role="list" aria-label="CliftonStrengths themes and concise descriptions from the report">
+          <div class="strength" role="listitem"><span class="num">01</span><span class="stage">Understand</span><strong>Analytical</strong><p>Searches for reasons and causes, weighing the factors that may affect a situation.</p></div>
+          <div class="strength" role="listitem"><span class="num">02</span><span class="stage">Find a path</span><strong>Strategic</strong><p>Spots relevant patterns and issues, then creates alternative ways to proceed.</p></div>
+          <div class="strength" role="listitem"><span class="num">03</span><span class="stage">Sustain effort</span><strong>Achiever</strong><p>Brings hard work and stamina, with satisfaction in being busy and productive.</p></div>
+          <div class="strength" role="listitem"><span class="num">04</span><span class="stage">Keep growing</span><strong>Learner</strong><p>Wants to learn and improve continuously; the process of learning is motivating.</p></div>
+          <div class="strength" role="listitem"><span class="num">05</span><span class="stage">Connect ideas</span><strong>Ideation</strong><p>Is fascinated by ideas and finds connections among seemingly disparate things.</p></div>
         </div>
-
-        <div class="value-card">
-          <div>
-            <h3>Unique value</h3>
-            <p>My strengths combine careful analysis, forward planning, follow through, continuous learning, and idea generation.</p>
+        <p class="strength-caption">Theme summaries are concise paraphrases of my Gallup CliftonStrengths report, completed January 29, 2025.</p>
+        <p class="strength-takeaway">My pattern: I look for what is driving a challenge, map possible ways forward, and stay curious and productive as I work toward a solution.</p>
+        <a class="strengths-link" href="CliftonStrengths-Report.pdf" target="_blank" rel="noopener noreferrer">View my CliftonStrengths report (PDF)</a>
+        <div class="value-grid">
+          <div class="value-box"><h3>Unique value</h3><p>My strengths combine careful analysis, forward planning, follow through, continuous learning, and idea generation.</p></div>
+          <div class="value-box"><h3>Relevance</h3><p>Together, they help me move from understanding a challenge to organizing a response and improving a solution with the people who will use it in mind.</p></div>
+        </div>
+        <div class="reflection"><strong>Reflection:</strong> These results help me describe how I work: I investigate causes, consider possible paths, and keep learning as I develop practical solutions. I see their greatest value when I pair analysis and ideas with clear communication and follow through. <strong>Reference:</strong> Gallup, <em>CliftonStrengths Assessment and Theme Descriptions</em>.</div>
+        <!-- Provides the full course artifact fields without adding more text to the main scan. -->
+        <details>
+          <summary>CliftonStrengths artifact information</summary>
+          <div class="detail-content">
+            <p><strong>Title:</strong> My CliftonStrengths: Five Themes, One Working Style.</p>
+            <p><strong>Introduction:</strong> This visual presents my five CliftonStrengths results as a concise reflection on how I approach work and learning.</p>
+            <p><strong>Description:</strong> The infographic displays Analytical, Strategic, Achiever, Learner, and Ideation, followed by the personal value proposition and reflection.</p>
+            <p><strong>Objective:</strong> Communicate my strengths clearly and describe how they inform my professional approach.</p>
+            <p><strong>Process:</strong> Reviewed my assessment results, grouped the five themes into a visual, and wrote a reflection about their combined value.</p>
+            <p><strong>Tools and technologies:</strong> CliftonStrengths report; AI-assisted editing to condense the theme descriptions; HTML and CSS for the web infographic.</p>
+            <p><strong>Unique value:</strong> My strengths combine careful analysis, forward planning, follow through, continuous learning, and idea generation.</p>
+            <p><strong>Relevance:</strong> Together, they help me move from understanding a challenge to organizing a response and improving a solution with the people who will use it in mind.</p>
+            <p><strong>Reflection:</strong> These results help me describe how I work: I investigate causes, consider possible paths, and keep learning as I develop practical solutions. I see their greatest value when I pair analysis and ideas with clear communication and follow through.</p>
+            <p><strong>References:</strong> Gallup, <em>CliftonStrengths Assessment and Theme Descriptions</em>.</p>
           </div>
-          <div>
-            <h3>Relevance</h3>
-            <p>Together, they help me move from understanding a challenge to organizing a response and improving a solution with the people who will use it in mind.</p>
-          </div>
-        </div>
-
-        <div class="reflection">
-          <strong>Reflection</strong>
-          These results help me describe how I work: I investigate causes, consider possible paths,
-          and keep learning as I develop practical solutions. I see their greatest value when I pair
-          analysis and ideas with clear communication and follow through.
-        </div>
+        </details>
       </div>
     </section>
 
-    <!-- Introduces the two current course projects. -->
+    <!-- Embeds the AI timeline infographic instead of leaving the artifact absent. -->
+    <section class="timeline-section" id="ai-history">
+      <div class="wrap">
+        <div class="section-title">
+          <p class="eyebrow">Artifact one · Artificial Intelligence</p>
+          <h2>From Logic to Language: A Visual History of AI</h2>
+          <p>A visual journey through the ideas, methods, and turning points that shaped artificial intelligence.</p>
+        </div>
+
+        <!-- The timeline is a native HTML infographic and adjusts for phone screens. -->
+        <div class="infographic" role="figure" aria-label="Artificial intelligence history timeline from 1943 through the generative AI era">
+          <div class="info-head">
+            <h3>Artificial Intelligence: 1943 to today</h3>
+            <p>From mathematical models of neurons to systems that generate language, images, and multimodal responses.</p>
+          </div>
+
+          <!-- The six era labels show the major conceptual shifts in the timeline. -->
+          <div class="era-key" aria-label="Six eras of AI development">
+            <div class="era foundation"><strong>01 · Foundations</strong><span>1943–1955 · Logic, computation, neuron models</span></div>
+            <div class="era symbolic"><strong>02 · Symbolic AI</strong><span>1956–1960s · Rules, search, language programs</span></div>
+            <div class="era winter"><strong>03 · AI winters and expert systems</strong><span>1970s–1980s · Cycles of promise and limits</span></div>
+            <div class="era statistical"><strong>04 · Statistical machine learning</strong><span>1980s–2000s · Learning patterns from data</span></div>
+            <div class="era deep"><strong>05 · Deep learning</strong><span>2010s · Neural networks at scale</span></div>
+            <div class="era generative"><strong>06 · Generative AI</strong><span>2020s–today · Foundation and multimodal models</span></div>
+          </div>
+
+          <!-- Each milestone explains what changed and why that change mattered. -->
+          <ol class="timeline">
+            <li class="event foundation"><time datetime="1943">1943</time><div class="event-body"><h4>A mathematical model of a neuron</h4><p>Warren McCulloch and Walter Pitts describe how networks of simplified neurons could perform logical operations, connecting computation and ideas about nervous activity.</p></div></li>
+            <li class="event foundation"><time datetime="1945">1945</time><div class="event-body"><h4>The stored-program computer takes shape</h4><p>John von Neumann circulates the First Draft of a Report on the EDVAC, describing a design in which instructions and data can be stored in computer memory.</p></div></li>
+            <li class="event foundation"><time datetime="1950">1950</time><div class="event-body"><h4>Turing asks whether machines can think</h4><p>Alan Turing reframes the question through an imitation game, giving later researchers a concrete way to discuss machine intelligence.</p></div></li>
+            <li class="event symbolic"><time datetime="1956">1956</time><div class="event-body"><h4>Dartmouth gives the field a name</h4><p>The Dartmouth summer research project establishes “artificial intelligence” as a research agenda and brings together early leaders in the field.</p></div></li>
+            <li class="event symbolic"><time datetime="1958">1958</time><div class="event-body"><h4>Perceptron and LISP</h4><p>Frank Rosenblatt’s perceptron advances trainable pattern recognition, while John McCarthy’s LISP supports symbolic computation and AI research.</p></div></li>
+            <li class="event symbolic"><time datetime="1966">1966</time><div class="event-body"><h4>ELIZA makes conversation a visible AI idea</h4><p>Joseph Weizenbaum’s program uses written patterns to simulate dialogue, prompting questions about how people interpret machine responses.</p></div></li>
+            <li class="event winter"><time>1970s–80s</time><div class="event-body"><h4>Expert systems rise as AI winters expose limits</h4><p>Rule-based systems show practical promise in specialized domains. Funding and expectations contract when results do not match broad claims.</p></div></li>
+            <li class="event statistical"><time datetime="1986">1986</time><div class="event-body"><h4>Backpropagation strengthens neural network learning</h4><p>Research by David Rumelhart, Geoffrey Hinton, and Ronald Williams helps make multilayer neural networks more practical to train.</p></div></li>
+            <li class="event statistical"><time datetime="1997">1997</time><div class="event-body"><h4>Deep Blue defeats Garry Kasparov</h4><p>IBM’s chess system demonstrates the power of specialized search and computation in a highly visible human–machine contest.</p></div></li>
+            <li class="event deep"><time datetime="2012">2012</time><div class="event-body"><h4>AlexNet accelerates deep learning</h4><p>A deep convolutional neural network achieves a major ImageNet result, highlighting the combined impact of data, GPUs, and neural network methods.</p></div></li>
+            <li class="event deep"><time datetime="2017">2017</time><div class="event-body"><h4>The Transformer architecture</h4><p>“Attention Is All You Need” introduces a model architecture that becomes a foundation for many later large language models.</p></div></li>
+            <li class="event generative"><time datetime="2022">2022–today</time><div class="event-body"><h4>Generative and multimodal AI enters everyday use</h4><p>Conversational systems and foundation models bring text, image, audio, and code generation to broader audiences, while governance and responsible deployment become central questions.</p></div></li>
+          </ol>
+          <p class="infographic-caption">The timeline highlights selected milestones; it is a learning artifact, not an exhaustive history. The distinct era colors are used only inside this infographic to help readers follow the historical shifts.</p>
+        </div>
+
+        <!-- Supplies the required course information for the timeline artifact. -->
+        <details class="artifact" style="margin-top:18px">
+          <summary>Artifact information</summary>
+          <div class="detail-content">
+            <p><strong>Introduction:</strong> This infographic helps a broad audience see how ideas and technologies in AI developed over time.</p>
+            <p><strong>Description:</strong> A six-era visual timeline connecting foundational theories, symbolic programs, machine learning, deep learning, and generative AI.</p>
+            <p><strong>Objective:</strong> Explain key AI milestones and advances in a clear, insightful, and visually engaging way.</p>
+            <p><strong>Process:</strong> Researched the history with BoodleBox AI, selected and organized milestones, designed the infographic in Venngage, and adapted its key eras into this web timeline. The visual groups developments by shifts in how AI systems represent, learn, and generate information.</p>
+            <p><strong>Tools and technologies:</strong> BoodleBox AI for research; Venngage for infographic design; HTML and CSS for the on-page timeline.</p>
+            <p><strong>Unique value:</strong> Turns a broad technical history into an accessible visual narrative of changing approaches to intelligence.</p>
+            <p><strong>Relevance:</strong> Demonstrates research synthesis, historical perspective, and communication of complex AI ideas.</p>
+            <p><strong>Reflection:</strong> Organizing the milestones by conceptual shifts helped me see how the field moved from hand-defined rules toward systems that learn patterns and generate new content. It also showed me how a visual structure can make technical change easier to follow.</p>
+            <p><strong>References:</strong> See the linked primary and institutional sources listed below.</p>
+            <ul class="reference-list">
+              <li><a href="https://doi.org/10.1007/BF02478259" target="_blank" rel="noopener noreferrer">McCulloch and Pitts, “A Logical Calculus of the Ideas Immanent in Nervous Activity” (1943)</a></li>
+              <li><a href="https://library.si.edu/digital-library/book/firstdraftofrepo00vonn" target="_blank" rel="noopener noreferrer">von Neumann, First Draft of a Report on the EDVAC (1945), Smithsonian Institution</a></li>
+              <li><a href="https://academic.oup.com/mind/article/LIX/236/433/986238" target="_blank" rel="noopener noreferrer">Turing, “Computing Machinery and Intelligence” (1950)</a></li>
+              <li><a href="https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html" target="_blank" rel="noopener noreferrer">McCarthy et al., Dartmouth AI research proposal (1955)</a></li>
+              <li><a href="https://doi.org/10.1037/h0042519" target="_blank" rel="noopener noreferrer">Rosenblatt, “The Perceptron” (1958)</a></li>
+              <li><a href="https://dl.acm.org/doi/10.1145/365153.365168" target="_blank" rel="noopener noreferrer">Weizenbaum, “ELIZA” (1966)</a></li>
+              <li><a href="https://www.nature.com/articles/323533a0" target="_blank" rel="noopener noreferrer">Rumelhart, Hinton, and Williams, “Learning representations by back-propagating errors” (1986)</a></li>
+              <li><a href="https://www.ibm.com/history/deep-blue" target="_blank" rel="noopener noreferrer">IBM, Deep Blue history</a></li>
+              <li><a href="https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html" target="_blank" rel="noopener noreferrer">Krizhevsky, Sutskever, and Hinton, AlexNet (2012)</a></li>
+              <li><a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">Vaswani et al., “Attention Is All You Need” (2017)</a></li>
+              <li><a href="https://openai.com/index/introducing-chatgpt/" target="_blank" rel="noopener noreferrer">OpenAI, Introducing ChatGPT (2022)</a></li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Provides the chatbot project and all required artifact information. -->
     <section id="projects">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Selected projects</p>
-          <h2>Projects that show how I think and deliver.</h2>
-          <p>Each artifact connects a clear objective with a thoughtful process and practical value.</p>
+      <div class="wrap">
+        <div class="section-title">
+          <p class="eyebrow">Artifact two · Applied AI</p>
+          <h2>DSO Daddy: An AI Student Guide Prototype</h2>
+          <p>A class project exploring how conversational AI might help international students navigate common questions.</p>
         </div>
-
-        <div class="project-grid">
-          <!-- AI history timeline artifact and its course information. -->
-          <article class="project-card">
-            <p class="project-type">Artificial Intelligence · Coursework</p>
-            <h3>From Logic to Language: A Visual History of AI</h3>
-            <p class="project-summary">
-              A visual story of key milestones showing how artificial intelligence evolved
-              from early computational ideas to modern advances.
-            </p>
-
-            <details>
-              <summary>View artifact details</summary>
-              <div class="artifact-details">
-                <p><strong>Introduction:</strong> This infographic makes the evolution of AI easier to follow by organizing major developments into a visual story.</p>
-                <p><strong>Description:</strong> It presents selected milestones and advances across the history of artificial intelligence.</p>
-                <p><strong>Objective:</strong> Explain how AI has evolved in a clear, insightful, and visually engaging way.</p>
-                <p><strong>Process:</strong> Researched the history of AI with BoodleBox AI, selected key milestones, and designed the infographic in Venngage.</p>
-                <p><strong>Tools and technologies:</strong> BoodleBox AI for research; Venngage for infographic design.</p>
-                <p><strong>Unique value:</strong> Turns a complex technical history into an accessible visual narrative.</p>
-                <p><strong>Relevance:</strong> Shows research, synthesis, and communication skills relevant to AI and machine learning work.</p>
-                <p><strong>Reflection:</strong> Add your reflection on what you learned while researching and designing the timeline.</p>
-                <p><strong>References:</strong> Include the sources used for the timeline in your final infographic or here.</p>
-              </div>
-            </details>
-          </article>
-
-          <!-- Chatbot artifact and its course information. -->
-          <article class="project-card">
-            <p class="project-type">Applied AI · Coursework</p>
-            <h3>DSO Daddy: An AI Student Guide Prototype</h3>
-            <p class="project-summary">
-              An independent chatbot prototype created to help international students find
-              starting points for common university and student-support questions.
-            </p>
-
-            <a class="project-link" href="https://iwu-chatbot.lovable.app/guest/d072f405-687d-455f-a4f3-6fc581f0abce" target="_blank" rel="noopener noreferrer">Explore the chatbot prototype</a>
-
-            <details>
-              <summary>View artifact details</summary>
-              <div class="artifact-details">
-                <p><strong>Introduction:</strong> DSO Daddy explores how a conversational AI prototype could make common student information easier to navigate.</p>
-                <p><strong>Description:</strong> The prototype focuses on student questions such as immigration processes, enrollment, employment, housing, and campus support.</p>
-                <p><strong>Objective:</strong> Create an accessible starting point for students seeking answers to recurring questions.</p>
-                <p><strong>Process:</strong> Identified student information needs, researched the topic with ChatGPT, and deployed the prototype with Lovable.</p>
-                <p><strong>Tools and technologies:</strong> ChatGPT for research; Lovable for deployment.</p>
-                <p><strong>Unique value:</strong> Applies conversational AI to a real information-access challenge affecting international students.</p>
-                <p><strong>Relevance:</strong> Demonstrates problem framing, applied AI exploration, and attention to user needs and responsible use.</p>
-                <p><strong>AI disclaimer:</strong> This independent coursework prototype may provide inaccurate or outdated information. It is not an official IWU service and does not provide legal advice. Confirm university questions with the appropriate IWU office and immigration questions with the DSO or an official government source.</p>
-                <p><strong>Reflection:</strong> Add your reflection on what you learned from developing and evaluating the prototype.</p>
-                <p><strong>References:</strong> Include the official university and government sources consulted for the chatbot’s information.</p>
-              </div>
-            </details>
-          </article>
-        </div>
+        <article class="artifact">
+          <p class="artifact-intro"><strong>Introduction:</strong> DSO Daddy is an independent chatbot prototype designed around common information needs of international students.</p>
+          <a class="artifact-link" href="https://iwu-chatbot.lovable.app/guest/d072f405-687d-455f-a4f3-6fc581f0abce" target="_blank" rel="noopener noreferrer">Explore the chatbot prototype</a>
+          <details>
+            <summary>Artifact information</summary>
+            <div class="detail-content">
+              <p><strong>Description:</strong> A conversational prototype that points students toward information about F-1 status, CPT, OPT, travel, admissions, employment, housing, and campus support.</p>
+              <p><strong>Objective:</strong> Explore a responsive starting point for repeated student questions while making clear when a student needs individual support from an official source.</p>
+              <p><strong>Process:</strong> Used empathy to define the information challenge, identified common question areas, researched content with ChatGPT, shaped the chatbot experience, deployed it with Lovable, and explored sample questions during testing.</p>
+              <p><strong>Tools and technologies:</strong> ChatGPT for research; Lovable for deployment.</p>
+              <p><strong>Unique value:</strong> Applies conversational AI to a real student information challenge and considers both access and appropriate boundaries.</p>
+              <p><strong>Relevance:</strong> Demonstrates user-centered problem framing, applied AI exploration, prototyping, and attention to responsible communication.</p>
+              <p><strong>AI disclaimer:</strong> This independent coursework prototype may provide inaccurate or outdated information. It is not an official IWU service and does not provide legal advice. Confirm university questions with the appropriate IWU office and immigration questions with the DSO or an official government source.</p>
+              <p><strong>Reflection:</strong> This project reinforced that a useful chatbot needs more than fluent responses. It needs clear boundaries, reliable sources, and a path to human support for individual immigration questions.</p>
+              <p><strong>References:</strong> <a href="https://www.iwu.edu/" target="_blank" rel="noopener noreferrer">Indiana Wesleyan University</a>, <a href="https://studyinthestates.dhs.gov/" target="_blank" rel="noopener noreferrer">DHS Study in the States</a>, and <a href="https://www.uscis.gov/" target="_blank" rel="noopener noreferrer">U.S. Citizenship and Immigration Services</a>.</p>
+            </div>
+          </details>
+        </article>
       </div>
     </section>
 
-    <!-- Invites hiring managers and collaborators to connect. -->
+    <!-- Makes the professional value proposition and contact action easy to find. -->
     <section class="contact" id="contact">
-      <div class="container">
-        <p class="eyebrow">Let’s connect</p>
-        <h2>Good work begins with a thoughtful conversation.</h2>
-        <p>
-          I am interested in opportunities across data science, applied AI and machine learning,
-          and program management, including work that can contribute to healthcare.
-        </p>
+      <div class="wrap">
+        <p class="eyebrow">Connect</p>
+        <h2>Let’s turn a complex challenge into a clear next step.</h2>
+        <p class="contact-copy">I am building toward AI and Machine Learning Engineering roles and remain open to opportunities where data, program leadership, product thinking, and technology come together, including healthcare.</p>
         <div class="actions">
-          <!-- Replace this placeholder with your actual LinkedIn profile URL. -->
-          <a class="button" href="https://www.linkedin.com/in/carolina-munarb/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+          <!-- Provides another link to your public LinkedIn profile. -->
+          <a class="button" href="https://www.linkedin.com/in/carolina-munarb" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
         </div>
+        <p class="contact-copy" style="margin-top:14px"><strong>Email:</strong> <a href="mailto:caroltechinnovation@gmail.com">caroltechinnovation@gmail.com</a></p>
       </div>
     </section>
   </main>
 
-  <!-- Shows your name and the current year at the bottom of the page. -->
-  <footer>
-    <div class="container">© 2026 Carolina Munar · Built to grow with my work.</div>
-  </footer>
+  <!-- Identifies the portfolio owner in the page footer. -->
+  <footer><div class="wrap">© 2026 Carolina Munar · Built to grow with my work.</div></footer>
 </body>
 </html>
