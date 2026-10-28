@@ -1,0 +1,197 @@
+<!doctype html> <!-- Tells the browser to use the modern HTML standard. -->
+<html lang="en"> <!-- Starts the page and identifies its language as English. -->
+<head> <!-- Starts the page setup area; most items here do not appear on the page. -->
+<meta charset="UTF-8"> <!-- Helps the browser display letters and symbols correctly. -->
+<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Makes the page fit phones and computers. -->
+<meta name="description" content="Carolina Munar connects program leadership, data science, and applied AI/ML."> <!-- Describes your site to search engines and previews. -->
+<title>Carolina Munar | Data, AI/ML & Program Leadership</title> <!-- Sets the words shown in the browser tab. -->
+<style> /* Starts the design rules for colors, spacing, and page layout. */
+:root { --navy: #0B2545; --gold: #C99424; --paper: #F7F8FA; --ink: #152536; --blue: #165D9C; --white: #FFFFFF; } /* Saves your main colors so they are easy to reuse. */
+* { box-sizing: border-box; } /* Includes padding and borders in an element's total size. */
+html { scroll-behavior: smooth; } /* Makes menu links scroll smoothly to their sections. */
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: Arial, sans-serif; line-height: 1.65; } /* Sets the default page color, font, and reading spacing. */
+a { color: var(--blue); } /* Gives links a clear blue color. */
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; } /* Makes keyboard-selected links easy to see. */
+.shell { width: min(1080px, calc(100% - 36px)); margin: 0 auto; } /* Centers the page and keeps it from becoming too wide. */
+.site-header { background: var(--navy); color: var(--white); padding: 22px 0 68px; } /* Makes the opening section dark blue with white text. */
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; } /* Places your name and menu on one row when there is room. */
+.brand { color: var(--white); font-weight: bold; text-decoration: none; letter-spacing: 0.03em; } /* Styles your name as a simple site brand. */
+nav { display: flex; gap: 18px; flex-wrap: wrap; } /* Spaces out the navigation links. */
+nav a { color: var(--white); text-decoration: none; font-size: 0.95rem; } /* Makes the navigation easy to read on the dark background. */
+nav a:hover { color: var(--gold); } /* Highlights a menu link when someone points at it. */
+.hero { max-width: 780px; padding-top: 78px; } /* Gives the main introduction room and limits line length. */
+.eyebrow { color: #F1CC77; font-size: 0.82rem; font-weight: bold; letter-spacing: 0.12em; text-transform: uppercase; } /* Styles the small label above your headline. */
+h1, h2, h3 { font-family: Georgia, serif; line-height: 1.2; } /* Uses a more expressive serif style for headings. */
+h1 { max-width: 760px; margin: 16px 0; font-size: clamp(2.4rem, 6vw, 4.6rem); } /* Makes your main message large and adjusts it to screen size. */
+.hero-copy { max-width: 690px; color: #E5ECF3; font-size: 1.12rem; } /* Makes the introduction comfortable to read against navy. */
+.actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; } /* Groups the action links and lets them wrap on small screens. */
+.button { display: inline-block; padding: 12px 18px; border-radius: 6px; font-weight: bold; text-decoration: none; } /* Gives action links a button shape. */
+.button-primary { background: var(--gold); color: var(--navy); } /* Uses gold with dark text for the main action button. */
+.button-secondary { border: 1px solid #B8C7D6; color: var(--white); } /* Gives the LinkedIn link a clear outlined style. */
+.section { padding: 68px 0; } /* Adds breathing room before and after each main section. */
+.section-white { background: var(--white); } /* Gives selected sections a white background. */
+.kicker { color: var(--blue); font-size: 0.8rem; font-weight: bold; letter-spacing: 0.12em; text-transform: uppercase; } /* Labels each section in a consistent style. */
+h2 { margin: 8px 0 16px; color: var(--navy); font-size: clamp(1.8rem, 4vw, 2.7rem); } /* Styles section titles and lets them resize on phones. */
+.lead { max-width: 760px; font-size: 1.1rem; } /* Makes the first paragraph in a section stand out. */
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; } /* Places cards in two columns on larger screens. */
+.card { padding: 22px; border: 1px solid #D9E1E8; border-radius: 10px; background: var(--white); } /* Gives each card a clear border and white background. */
+.card h3 { margin-top: 0; margin-bottom: 8px; color: var(--navy); font-size: 1.35rem; } /* Styles the title inside each card. */
+.card p { margin: 8px 0; } /* Keeps paragraphs inside cards from feeling crowded. */
+.tag { display: inline-block; margin-bottom: 10px; color: var(--blue); font-size: 0.78rem; font-weight: bold; letter-spacing: 0.06em; text-transform: uppercase; } /* Labels a card's topic or status. */
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 26px; } /* Arranges the Design Thinking stages in three columns. */
+.step { padding: 18px; border-top: 4px solid var(--gold); background: var(--paper); } /* Marks each process stage with a gold line. */
+.step strong { display: block; color: var(--navy); } /* Makes the name of each stage easy to spot. */
+.role { padding: 22px 0; border-bottom: 1px solid #D9E1E8; } /* Separates each experience entry with a light line. */
+.role:last-child { border-bottom: 0; } /* Removes the line after the final experience entry. */
+.role h3 { margin: 0; color: var(--navy); } /* Styles the title of each experience entry. */
+.role-meta { margin: 4px 0 10px; color: #526477; font-size: 0.95rem; } /* Styles the organization and dates below the title. */
+.strength-name { color: var(--blue); font-weight: bold; } /* Highlights each CliftonStrengths theme. */
+.note { color: #526477; font-size: 0.94rem; } /* Styles helpful notes in a quieter color. */
+.contact-box { padding: 28px; border-radius: 12px; background: var(--navy); color: var(--white); } /* Creates a strong final contact section. */
+.contact-box h2 { color: var(--white); } /* Keeps the contact heading readable on navy. */
+.contact-box a { color: #F1CC77; } /* Makes contact links gold on the dark background. */
+footer { padding: 24px 0; color: #526477; font-size: 0.9rem; } /* Styles the small text at the bottom of the page. */
+@media (max-width: 700px) { .grid, .steps { grid-template-columns: 1fr; } .hero { padding-top: 52px; } nav { gap: 12px; } } /* Stacks cards and shortens spacing on smaller screens. */
+</style> <!-- Ends the design rules. -->
+</head> <!-- Ends the setup area. -->
+<body id="top"> <!-- Starts the visible page and names its top anchor. -->
+<header class="site-header"> <!-- Starts the dark-blue opening area. -->
+<div class="shell"> <!-- Centers the header contents. -->
+<div class="topbar"> <!-- Starts the row with your name and menu. -->
+<a class="brand" href="#top">Carolina Munar</a> <!-- Makes your name a link back to the top of the page. -->
+<nav aria-label="Main navigation"> <!-- Starts the page menu and labels it for screen readers. -->
+<a href="#story">My story</a> <!-- Adds a menu link to your story section. -->
+<a href="#approach">My approach</a> <!-- Adds a menu link to your Design Thinking section. -->
+<a href="#experience">Experience</a> <!-- Adds a menu link to your experience section. -->
+<a href="#work">Selected work</a> <!-- Adds a menu link to your work section. -->
+<a href="#contact">Contact</a> <!-- Adds a menu link to your contact section. -->
+</nav> <!-- Ends the page menu. -->
+</div> <!-- Ends the name-and-menu row. -->
+<div class="hero"> <!-- Starts the main introduction. -->
+<p class="eyebrow">Program leadership · Data Science · Applied AI/ML</p> <!-- Names the connected areas you bring to the work. -->
+<h1>I turn complex questions into clear insight and useful action.</h1> <!-- Gives hiring managers your central value message. -->
+<p class="hero-copy">I bring experience in program management, evaluation, consulting, and stakeholder engagement. I’m building on that foundation with Data Science and Applied AI/ML, with the goal of contributing to healthcare research.</p> <!-- Introduces your experience and future direction honestly. -->
+<p class="hero-copy">My work connects people, evidence, and delivery so ideas can become practical work teams can use.</p> <!-- Explains the thread connecting your past work and future roles. -->
+<div class="actions"> <!-- Groups the main things visitors can do next. -->
+<a class="button button-primary" href="#work">Explore my work</a> <!-- Sends visitors to the project summaries. -->
+<a class="button button-secondary" href="YOUR-LINKEDIN-URL" target="_blank" rel="noopener">Connect on LinkedIn</a> <!-- Opens your LinkedIn profile in a new tab; replace the placeholder URL. -->
+</div> <!-- Ends the action links. -->
+</div> <!-- Ends the main introduction. -->
+</div> <!-- Ends the centered header contents. -->
+</header> <!-- Ends the opening area. -->
+<main> <!-- Starts the main page sections. -->
+<section class="section" id="story"> <!-- Starts the career-story section. -->
+<div class="shell"> <!-- Centers the story contents. -->
+<p class="kicker">The through-line</p> <!-- Labels the main idea of your career story. -->
+<h2>People, evidence, and delivery belong in the same conversation.</h2> <!-- Gives the story section its main point. -->
+<p class="lead">My foundation is in Industrial Engineering and international development. I’ve worked in public scholarship and evaluation, small-business consulting, and global program improvement. Across those settings, I’ve translated complex needs and information into recommendations, learning resources, and coordinated plans.</p> <!-- Connects your education and previous work into one narrative. -->
+<p>I’m now extending that experience through graduate study and projects in Data Science and Applied AI/ML, with healthcare research as my target sector.</p> <!-- States your career transition without claiming past healthcare employment. -->
+</div> <!-- Ends the centered story contents. -->
+</section> <!-- Ends the career-story section. -->
+<section class="section section-white" id="approach"> <!-- Starts the Design Thinking section on a white background. -->
+<div class="shell"> <!-- Centers the Design Thinking contents. -->
+<p class="kicker">How I work</p> <!-- Labels the section about your working process. -->
+<h2>From human need to tested solution.</h2> <!-- States the purpose of your Design Thinking process. -->
+<p class="lead">I use Design Thinking to understand the people affected, define the right problem, explore options, build a prototype, test it, and improve the result.</p> <!-- Explains the process in plain language. -->
+<div class="steps"> <!-- Starts the six Design Thinking stage cards. -->
+<div class="step"><strong>1. Empathize</strong><span>Understand who needs help and what they need.</span></div> <!-- Describes learning about the people involved. -->
+<div class="step"><strong>2. Define</strong><span>Turn what you learned into a specific problem.</span></div> <!-- Describes narrowing the challenge. -->
+<div class="step"><strong>3. Ideate</strong><span>Consider several possible ways to solve it.</span></div> <!-- Describes generating and comparing ideas. -->
+<div class="step"><strong>4. Prototype</strong><span>Build a small version that people can react to.</span></div> <!-- Describes creating an early model or draft. -->
+<div class="step"><strong>5. Test</strong><span>Check whether it works and what needs to change.</span></div> <!-- Describes evaluating the prototype. -->
+<div class="step"><strong>6. Deliver and learn</strong><span>Put the solution into use, track progress, and improve it.</span></div> <!-- Connects design work to program implementation. -->
+</div> <!-- Ends the six stage cards. -->
+</div> <!-- Ends the centered Design Thinking contents. -->
+</section> <!-- Ends the Design Thinking section. -->
+<section class="section" id="experience"> <!-- Starts the professional experience section. -->
+<div class="shell"> <!-- Centers the experience contents. -->
+<p class="kicker">Experience in action</p> <!-- Labels the section that shows evidence from past roles. -->
+<h2>Program leadership is part of my data story.</h2> <!-- Makes your Program Manager experience visible. -->
+<div class="role"> <!-- Starts your most recent experience entry. -->
+<h3>Membership Experience Program Specialist · Lions Clubs International</h3> <!-- Names your role and organization. -->
+<p class="role-meta">Oak Brook, Illinois · 2025–2026</p> <!-- Shows where and when you held the role. -->
+<p>Built an improvement roadmap with eight outcomes and 75 activities, then used an integrated Gantt chart to track milestones. Also joined four tables in a five-year SQL analysis and presented findings to leaders.</p> <!-- Shows program delivery and data analysis in one example. -->
+</div> <!-- Ends the Lions Clubs experience entry. -->
+<div class="role"> <!-- Starts your consulting experience entry. -->
+<h3>Business Development Consultant · Prospera USA</h3> <!-- Names your role and organization. -->
+<p class="role-meta">Raleigh, North Carolina · 2023–2024</p> <!-- Shows where and when you held the role. -->
+<p>Guided small-business consulting engagements from client needs through recommendations. Prepared growth plans and financial projections; 25% of capital-access clients advanced to final-stage funding review.</p> <!-- Describes your consulting work and accurately states the reported outcome. -->
+</div> <!-- Ends the Prospera USA experience entry. -->
+<div class="role"> <!-- Starts your university experience entry. -->
+<h3>Graduate Assistant · Millersville University</h3> <!-- Names your role and organization. -->
+<p class="role-meta">Public Scholarship and Diversity & Social Justice · 2020–2022</p> <!-- Identifies the university areas where you worked. -->
+<p>Supported program strategy and evaluation, led quantitative research, and helped translate findings for education and policy audiences.</p> <!-- Shows evaluation, research, and communication skills. -->
+</div> <!-- Ends the Millersville University experience entry. -->
+</div> <!-- Ends the centered experience contents. -->
+</section> <!-- Ends the professional experience section. -->
+<section class="section section-white" id="strengths"> <!-- Starts the strengths section on a white background. -->
+<div class="shell"> <!-- Centers the strengths contents. -->
+<p class="kicker">Strengths in action</p> <!-- Labels the section about your CliftonStrengths. -->
+<h2>How my strengths show up in my work.</h2> <!-- Connects the assessment to real examples. -->
+<div class="grid"> <!-- Starts the two-column strengths layout. -->
+<div class="card"><p class="strength-name">Analytical</p><p>I look for causes and patterns, as shown in my five-year SQL comparison.</p></div> <!-- Connects Analytical to your SQL work. -->
+<div class="card"><p class="strength-name">Strategic</p><p>I organize complex work into outcomes, activities, and possible paths forward.</p></div> <!-- Connects Strategic to your program roadmap. -->
+<div class="card"><p class="strength-name">Achiever</p><p>I keep work moving by tracking activities and milestones through a plan.</p></div> <!-- Connects Achiever to your project delivery work. -->
+<div class="card"><p class="strength-name">Learner</p><p>I continue building my knowledge through graduate study and applied projects.</p></div> <!-- Connects Learner to your ongoing education. -->
+<div class="card"><p class="strength-name">Ideation</p><p>I connect data, feedback, and learning needs when shaping useful resources.</p></div> <!-- Connects Ideation to your training-resource work. -->
+</div> <!-- Ends the strengths layout. -->
+</div> <!-- Ends the centered strengths contents. -->
+</section> <!-- Ends the strengths section. -->
+<section class="section" id="work"> <!-- Starts the selected-work section. -->
+<div class="shell"> <!-- Centers the selected-work contents. -->
+<p class="kicker">Selected work</p> <!-- Labels the project section. -->
+<h2>Projects that show how I think and deliver.</h2> <!-- Introduces your project summaries. -->
+<p class="lead">These summaries are the starting point. Each course artifact will become a full case study with its objective, process, tools, value, relevance, reflection, and references.</p> <!-- Reminds you to expand every artifact to meet the class requirements. -->
+<div class="grid"> <!-- Starts the two-column project-card layout. -->
+<article class="card"> <!-- Starts the AI history timeline project card. -->
+<span class="tag">Residency artifact · In progress</span> <!-- Clearly shows that this project is not finished yet. -->
+<h3>From Logic to Language: A Visual History of AI</h3> <!-- Gives your planned residency project a working title. -->
+<p><strong>Purpose:</strong> Explain selected AI milestones and advances in a clear visual story.</p> <!-- States what the timeline is meant to do. -->
+<p><strong>Value:</strong> Shows research, synthesis, and communication of complex ideas.</p> <!-- Explains why the artifact matters to employers. -->
+</article> <!-- Ends the AI timeline card. -->
+<article class="card"> <!-- Starts the phone sensor machine learning project card. -->
+<span class="tag">Machine learning · Coursework</span> <!-- Labels the project type and context. -->
+<h3>Human Activity Recognition from Smartphone Sensors</h3> <!-- Names the project from your resume. -->
+<p><strong>Approach:</strong> Compared classification models using movement-sensor data in R.</p> <!-- Summarizes your project process at a high level. -->
+<p><strong>Evidence:</strong> The best model correctly classified 71.6% of test records across 10 rounds.</p> <!-- States the result from your project inventory. -->
+<p class="note">This is an exploratory course result, not a validated healthcare tool.</p> <!-- Sets a clear limit on how readers should interpret the result. -->
+</article> <!-- Ends the sensor project card. -->
+<article class="card"> <!-- Starts the SQL analysis project card. -->
+<span class="tag">Data analysis · Professional experience</span> <!-- Labels the project as professional data analysis. -->
+<h3>Five-Year Program Outcomes Analysis</h3> <!-- Gives the SQL analysis a clear case-study title. -->
+<p><strong>Approach:</strong> Joined four tables and compared outcomes across certification status and region.</p> <!-- Summarizes the analysis approach. -->
+<p><strong>Value:</strong> Presented findings and recommendations to inform program decisions.</p> <!-- Explains how the analysis was used. -->
+</article> <!-- Ends the SQL analysis card. -->
+<article class="card"> <!-- Starts the program roadmap project card. -->
+<span class="tag">Program management · Professional experience</span> <!-- Keeps your Program Manager experience visible. -->
+<h3>Turning a Complex Program into a Trackable Roadmap</h3> <!-- Gives the program improvement work a story-based title. -->
+<p><strong>Approach:</strong> Organized stakeholder feedback and requirements into eight outcomes and 75 activities.</p> <!-- Describes how you structured the work. -->
+<p><strong>Tools:</strong> Integrated Gantt chart and milestone tracking.</p> <!-- Names tools used in the program work. -->
+</article> <!-- Ends the program roadmap card. -->
+<article class="card"> <!-- Starts the RAG workflow project card. -->
+<span class="tag">Applied AI · Professional experience</span> <!-- Labels the applied AI example. -->
+<h3>RAG-Supported Training Content Review</h3> <!-- Gives your RAG workflow a clear title. -->
+<p><strong>Approach:</strong> Used retrieval-augmented generation to review program materials and support content updates.</p> <!-- Describes the workflow without overstating its capabilities. -->
+<p><strong>Value:</strong> Connects AI tools with training needs and human review.</p> <!-- Explains its relevance to responsible AI work. -->
+</article> <!-- Ends the RAG workflow card. -->
+</div> <!-- Ends the project-card layout. -->
+<p class="note">More Data Science projects can be added here as we write their complete case studies.</p> <!-- Leaves room for your future Data Science projects. -->
+</div> <!-- Ends the centered selected-work contents. -->
+</section> <!-- Ends the selected-work section. -->
+<section class="section section-white" id="contact"> <!-- Starts the contact section on a white background. -->
+<div class="shell"> <!-- Centers the contact box. -->
+<div class="contact-box"> <!-- Starts the dark contact panel. -->
+<p class="kicker">Let’s connect</p> <!-- Gives the contact panel a friendly introduction. -->
+<h2>Interested in Data Scientist, AI/ML Engineer, or Program Management specially in healthcare?</h2> <!-- Names the kinds of opportunities you want to discuss. -->
+<p>I am building toward healthcare research and welcome conversations about roles where data, AI, technology, and coordinated delivery meet.</p> <!-- Invites a conversation without claiming healthcare experience. -->
+<p><a href="www.linkedin.com/in/carolina-munarb" target="_blank" rel="noopener">Connect with me on LinkedIn</a></p> <!-- Provides your LinkedIn contact path; replace the placeholder. -->
+<p><a href="mailto:caroltechinnovation@gmail.com">Email me</a></p> <!-- Provides email contact; replace this only if you want your email public. -->
+</div> <!-- Ends the contact panel. -->
+</div> <!-- Ends the centered contact contents. -->
+</section> <!-- Ends the contact section. -->
+</main> <!-- Ends the main page content. -->
+<footer> <!-- Starts the small page footer. -->
+<div class="shell">Carolina Munar · Data Science · Applied AI/ML · Program Manager</div> <!-- Repeats your name and main professional areas. -->
+</footer> <!-- Ends the footer. -->
+</body> <!-- Ends the visible page. -->
+</html> <!-- Ends the HTML document. -->
